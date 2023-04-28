@@ -1,0 +1,47 @@
+State System Membership (v2016): 
+Correlates of War Project. 2017. “State System Membership List, v2016.” Online, http://correlatesofwar.org
+
+COW War Data (v4.0):
+Sarkees, Meredith Reid and Frank Wayman (2010). Resort to War: 1816 – 2007. Washington DC: CQ Press.
+	Dyadic Inter-State War Dataset:
+	Zeev Maoz, Paul L. Johnson, Jasper Kaplan, Fiona Ogunkoya, and Aaron Shreve 2019. The Dyadic Militarized Interstate Disputes (MIDs) Dataset Version 3.0: Logic, Characteristics, and Comparisons to Alternative Datasets, Journal of Conflict Resolution (forthcoming). 
+
+Militarized Interstate Disputes (v5.0):
+Palmer, Glenn, Roseanne W. McManus, Vito D’Orazio, Michael R. Kenwick, Mikaela Karstens, Chase Bloch, Nick Dietrich, Kayla Kahn, Kellan Ritter, Michael J. Soules. 2020. “The MID5 Dataset, 2011-2014: Procedures, Coding Rules, and Description.” Conflict Management and Peace Science, 39(4): 470-482. DOI: https://journals.sagepub.com/doi/full/10.1177/0738894221995743
+
+Militarized Interstate Dispute Locations (v2.1):
+Braithwaite, A. 2010. “MIDLOC: Introducing the Militarized Interstate Dispute (MID) Location Dataset.” Journal of Peace Research 47(1): 91-98.
+
+Bezerra, P., & Braithwaite, A. 2019. Codebook for the Militarized Interstate Dispute Location (MIDLOC-A/I) Dataset, v2.1.
+
+National Material Capabilities (v6.0):
+Singer, J. David, Stuart Bremer, and John Stuckey. (1972). “Capability Distribution, Uncertainty, and Major Power War, 1820-1965.” in Bruce Russett (ed) Peace, War, and Numbers, Beverly Hills: Sage, 19-48.
+
+The above article, the first NMC data set assembled in the 1960s, described and analyzed original data on major powers only. Following this, the data set was expanded to cover the entire interstate system as discussed in:
+
+Singer, J. David. 1987. “Reconstructing the Correlates of War Dataset on Material Capabilities of States, 1816-1985” International Interactions, 14: 115-32.
+
+World Religion:
+Zeev Maoz and Errol A. Henderson. 2013. “The World Religion Dataset, 1945-2010: Logic, Estimates, and Trends.” International Interactions, 39: 265-291.
+
+Formal Alliances:
+Gibler, Douglas M. 2009. International military alliances, 1648-2008. CQ Press. 
+
+Direct Contiguity (v3.2):
+Correlates of War Project. Direct Contiguity Data, 1816-2016. Version 3.2.
+
+Stinnett, Douglas M., Jaroslav Tir, Philip Schafer, Paul F. Diehl, and Charles Gochman. 2002. “The Correlates of War Project Direct Contiguity Data, Version 3.” Conflict Management and Peace Science 19(2):58-66.
+
+Territorial Change (v6):
+Tir, Jaroslav, Philip Schafer, Paul Diehl, and Gary Goertz. 1998. “Territorial Changes, 1816-1996: Procedures and Data”, Conflict Management and Peace Science 16:89-97.
+
+Colonial Contiguity (v3.1):
+Correlates of War Project. Colonial Contiguity Data, 1816-2016. Version 3.1. 
+
+Diplomatic Exchange (v2006.1):
+Bayer, Reşat. 2006. “Diplomatic Exchange Data set, v2006.1.” Online: http://correlatesofwar.org
+
+Trade (v4.0):
+Barbieri, Katherine and Omar M. G. Omar Keshk. 2016. Correlates of War Project Trade Data Set Codebook, Version 4.0. Online: https://correlatesofwar.org.
+
+Barbieri, Katherine, Omar M. G. Keshk, and Brian Pollins. 2009. “TRADING DATA: Evaluating our Assumptions and Coding Rules.” Conflict Management and Peace Science. 26(5): 471-491.
