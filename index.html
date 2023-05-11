@@ -15466,13 +15466,7 @@ Name: 530, dtype: int64
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># War data is only until 2010, since this is our dependent variable, we can drop everything after this year.</span>
-<span class="c1"># I also want to do an analysis with MIDs as the dependent variable, </span>
-<span class="c1"># so I&#39;m going to keep a copy of that goes to 2014.</span>
-<span class="n">df_2014</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2014</span><span class="p">]</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2010</span><span class="p">]</span>
-
-<span class="c1"># Merging with our DataFrame, dropping duplicates, and seeing if anything was added.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Merging with our DataFrame, dropping duplicates, and seeing if anything was added.</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">war</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
@@ -15501,8 +15495,8 @@ Name: 530, dtype: int64
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1685370
-1685370
+<pre>1912350
+1912350
 </pre>
 </div>
 </div>
@@ -15564,10 +15558,16 @@ Name: 530, dtype: int64
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We have a lot of NaNs. A lot of these are caused by the trade dataset being between 1870-2014 rather than</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># War data is only until 2010, since this is our dependent variable, we can drop everything after this year.</span>
+<span class="c1"># I also want to do an analysis with MIDs as the dependent variable, </span>
+<span class="c1"># so I&#39;m going to keep a copy of that goes to 2014.</span>
+<span class="n">df_2014</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2014</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2010</span><span class="p">]</span>
+
+<span class="c1"># We have a lot of NaNs. A lot of these are caused by the trade dataset being between 1870-2014 rather than</span>
 <span class="c1"># 1816-2016. So we can create a new DataFrame containing only these rows to start.</span>
 
-<span class="n">df_1870</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1870</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2014</span><span class="p">)]</span>
+<span class="n">df_1870</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1870</span><span class="p">]</span>
 <span class="c1"># Checking if we have more NaNs</span>
 <span class="n">df_1870</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
@@ -15677,7 +15677,7 @@ Dep. Variable:           c1_initiated   No. Observations:              1126205
 Model:                          Logit   Df Residuals:                  1126191
 Method:                           MLE   Df Model:                           13
 Date:                Thu, 11 May 2023   Pseudo R-squ.:                  0.1628
-Time:                        15:10:33   Log-Likelihood:                -1050.0
+Time:                        17:18:23   Log-Likelihood:                -1050.0
 converged:                       True   LL-Null:                       -1254.1
 Covariance Type:            nonrobust   LLR p-value:                 4.086e-79
 ===========================================================================================
@@ -15752,7 +15752,7 @@ Dep. Variable:           c1_initiated   No. Observations:              1685370
 Model:                          Logit   Df Residuals:                  1685358
 Method:                           MLE   Df Model:                           11
 Date:                Thu, 11 May 2023   Pseudo R-squ.:                  0.1662
-Time:                        15:10:58   Log-Likelihood:                -2352.1
+Time:                        17:18:44   Log-Likelihood:                -2352.1
 converged:                       True   LL-Null:                       -2820.9
 Covariance Type:            nonrobust   LLR p-value:                4.892e-194
 ===========================================================================================
@@ -15815,108 +15815,44 @@ quasi-separation. In this case some parameters will not be identified.
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/compat.py</span> in <span class="ansi-cyan-fg">call_and_wrap_exc</span><span class="ansi-blue-fg">(msg, origin, f, *args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     35</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 36</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     37</span>     <span class="ansi-green-fg">except</span> Exception <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   mids   R-squared:                       0.013
+Model:                            OLS   Adj. R-squared:                  0.013
+Method:                 Least Squares   F-statistic:                     2431.
+Date:                Thu, 11 May 2023   Prob (F-statistic):               0.00
+Time:                        17:18:54   Log-Likelihood:             2.9251e+06
+No. Observations:             1836690   AIC:                        -5.850e+06
+Df Residuals:                 1836679   BIC:                        -5.850e+06
+Df Model:                          10                                         
+Covariance Type:            nonrobust                                         
+===========================================================================================
+                              coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------------
+Intercept                  -0.0029      0.002     -1.456      0.145      -0.007       0.001
+C(conttype)[T.2]            0.0220      0.001     24.876      0.000       0.020       0.024
+C(conttype)[T.3]           -0.0134      0.001    -14.241      0.000      -0.015      -0.012
+C(conttype)[T.4]           -0.0106      0.000    -24.777      0.000      -0.011      -0.010
+C(conttype)[T.5]           -0.0116      0.000    -29.832      0.000      -0.012      -0.011
+C(conttype)[T.6]           -0.0146      0.000    -63.705      0.000      -0.015      -0.014
+year                     8.815e-06   1.01e-06      8.754      0.000    6.84e-06    1.08e-05
+capability_percent_diff -4.509e-19   9.82e-07  -4.59e-13      1.000   -1.92e-06    1.92e-06
+gained_in_past              0.0053      0.000     13.157      0.000       0.005       0.006
+lost_in_past                0.0053      0.000     13.157      0.000       0.005       0.006
+war_in_past                 0.0357      0.000     96.724      0.000       0.035       0.036
+==============================================================================
+Omnibus:                  5704178.236   Durbin-Watson:                   1.958
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):     562785105021.786
+Skew:                          48.681   Prob(JB):                         0.00
+Kurtosis:                    2713.060   Cond. No.                     1.08e+05
+==============================================================================
 
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/eval.py</span> in <span class="ansi-cyan-fg">eval</span><span class="ansi-blue-fg">(self, expr, source_name, inner_namespace)</span>
-<span class="ansi-green-intense-fg ansi-bold">    164</span>         code <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> source_name<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;eval&#34;</span><span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 165</span><span class="ansi-red-fg">         return eval(code, {}, VarLookupDict([inner_namespace]
-</span><span class="ansi-green-intense-fg ansi-bold">    166</span>                                             + self._namespaces))
-
-<span class="ansi-green-fg">&lt;string&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;war_in_past&#39; is not defined
-
-The above exception was the direct cause of the following exception:
-
-<span class="ansi-red-fg">PatsyError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_458/4246922120.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> lin_model = sm.formula.ols(
-</span><span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">&#39;mids ~ year + capability_percent_diff + C(conttype) + gained_in_past + lost_in_past + war_in_past&#39;</span><span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     data=df_2014).fit()
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>lin_model<span class="ansi-blue-fg">.</span>summary<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/statsmodels/base/model.py</span> in <span class="ansi-cyan-fg">from_formula</span><span class="ansi-blue-fg">(cls, formula, data, subset, drop_cols, *args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    198</span>             missing <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;raise&#39;</span>
-<span class="ansi-green-intense-fg ansi-bold">    199</span> 
-<span class="ansi-green-fg">--&gt; 200</span><span class="ansi-red-fg">         tmp = handle_formula_data(data, None, formula, depth=eval_env,
-</span><span class="ansi-green-intense-fg ansi-bold">    201</span>                                   missing=missing)
-<span class="ansi-green-intense-fg ansi-bold">    202</span>         <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>endog<span class="ansi-blue-fg">,</span> exog<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> missing_idx<span class="ansi-blue-fg">,</span> design_info<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> tmp
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/statsmodels/formula/formulatools.py</span> in <span class="ansi-cyan-fg">handle_formula_data</span><span class="ansi-blue-fg">(Y, X, formula, depth, missing)</span>
-<span class="ansi-green-intense-fg ansi-bold">     61</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     62</span>         <span class="ansi-green-fg">if</span> data_util<span class="ansi-blue-fg">.</span>_is_using_pandas<span class="ansi-blue-fg">(</span>Y<span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 63</span><span class="ansi-red-fg">             result = dmatrices(formula, Y, depth, return_type=&#39;dataframe&#39;,
-</span><span class="ansi-green-intense-fg ansi-bold">     64</span>                                NA_action=na_action)
-<span class="ansi-green-intense-fg ansi-bold">     65</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/highlevel.py</span> in <span class="ansi-cyan-fg">dmatrices</span><span class="ansi-blue-fg">(formula_like, data, eval_env, NA_action, return_type)</span>
-<span class="ansi-green-intense-fg ansi-bold">    307</span>     &#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    308</span>     eval_env <span class="ansi-blue-fg">=</span> EvalEnvironment<span class="ansi-blue-fg">.</span>capture<span class="ansi-blue-fg">(</span>eval_env<span class="ansi-blue-fg">,</span> reference<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 309</span><span class="ansi-red-fg">     (lhs, rhs) = _do_highlevel_design(formula_like, data, eval_env,
-</span><span class="ansi-green-intense-fg ansi-bold">    310</span>                                       NA_action, return_type)
-<span class="ansi-green-intense-fg ansi-bold">    311</span>     <span class="ansi-green-fg">if</span> lhs<span class="ansi-blue-fg">.</span>shape<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/highlevel.py</span> in <span class="ansi-cyan-fg">_do_highlevel_design</span><span class="ansi-blue-fg">(formula_like, data, eval_env, NA_action, return_type)</span>
-<span class="ansi-green-intense-fg ansi-bold">    162</span>     <span class="ansi-green-fg">def</span> data_iter_maker<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    163</span>         <span class="ansi-green-fg">return</span> iter<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>data<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 164</span><span class="ansi-red-fg">     design_infos = _try_incr_builders(formula_like, data_iter_maker, eval_env,
-</span><span class="ansi-green-intense-fg ansi-bold">    165</span>                                       NA_action)
-<span class="ansi-green-intense-fg ansi-bold">    166</span>     <span class="ansi-green-fg">if</span> design_infos <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/highlevel.py</span> in <span class="ansi-cyan-fg">_try_incr_builders</span><span class="ansi-blue-fg">(formula_like, data_iter_maker, eval_env, NA_action)</span>
-<span class="ansi-green-intense-fg ansi-bold">     64</span>     <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>formula_like<span class="ansi-blue-fg">,</span> ModelDesc<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     65</span>         <span class="ansi-green-fg">assert</span> isinstance<span class="ansi-blue-fg">(</span>eval_env<span class="ansi-blue-fg">,</span> EvalEnvironment<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">         return design_matrix_builders([formula_like.lhs_termlist,
-</span><span class="ansi-green-intense-fg ansi-bold">     67</span>                                        formula_like.rhs_termlist],
-<span class="ansi-green-intense-fg ansi-bold">     68</span>                                       data_iter_maker<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/build.py</span> in <span class="ansi-cyan-fg">design_matrix_builders</span><span class="ansi-blue-fg">(termlists, data_iter_maker, eval_env, NA_action)</span>
-<span class="ansi-green-intense-fg ansi-bold">    691</span>     <span class="ansi-red-fg"># on some data to find out what type of data they return.</span>
-<span class="ansi-green-intense-fg ansi-bold">    692</span>     (num_column_counts,
-<span class="ansi-green-fg">--&gt; 693</span><span class="ansi-red-fg">      </span>cat_levels_contrasts<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> _examine_factor_types<span class="ansi-blue-fg">(</span>all_factors<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    694</span>                                                    factor_states<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    695</span>                                                    data_iter_maker<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/build.py</span> in <span class="ansi-cyan-fg">_examine_factor_types</span><span class="ansi-blue-fg">(factors, factor_states, data_iter_maker, NA_action)</span>
-<span class="ansi-green-intense-fg ansi-bold">    441</span>     <span class="ansi-green-fg">for</span> data <span class="ansi-green-fg">in</span> data_iter_maker<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    442</span>         <span class="ansi-green-fg">for</span> factor <span class="ansi-green-fg">in</span> list<span class="ansi-blue-fg">(</span>examine_needed<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 443</span><span class="ansi-red-fg">             </span>value <span class="ansi-blue-fg">=</span> factor<span class="ansi-blue-fg">.</span>eval<span class="ansi-blue-fg">(</span>factor_states<span class="ansi-blue-fg">[</span>factor<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    444</span>             <span class="ansi-green-fg">if</span> factor <span class="ansi-green-fg">in</span> cat_sniffers <span class="ansi-green-fg">or</span> guess_categorical<span class="ansi-blue-fg">(</span>value<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    445</span>                 <span class="ansi-green-fg">if</span> factor <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> cat_sniffers<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/eval.py</span> in <span class="ansi-cyan-fg">eval</span><span class="ansi-blue-fg">(self, memorize_state, data)</span>
-<span class="ansi-green-intense-fg ansi-bold">    562</span> 
-<span class="ansi-green-intense-fg ansi-bold">    563</span>     <span class="ansi-green-fg">def</span> eval<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> memorize_state<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 564</span><span class="ansi-red-fg">         return self._eval(memorize_state[&#34;eval_code&#34;],
-</span><span class="ansi-green-intense-fg ansi-bold">    565</span>                           memorize_state<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    566</span>                           data)
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/eval.py</span> in <span class="ansi-cyan-fg">_eval</span><span class="ansi-blue-fg">(self, code, memorize_state, data)</span>
-<span class="ansi-green-intense-fg ansi-bold">    545</span>     <span class="ansi-green-fg">def</span> _eval<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> code<span class="ansi-blue-fg">,</span> memorize_state<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    546</span>         inner_namespace <span class="ansi-blue-fg">=</span> VarLookupDict<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>data<span class="ansi-blue-fg">,</span> memorize_state<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;transforms&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 547</span><span class="ansi-red-fg">         return call_and_wrap_exc(&#34;Error evaluating factor&#34;,
-</span><span class="ansi-green-intense-fg ansi-bold">    548</span>                                  self<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    549</span>                                  memorize_state<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;eval_env&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>eval<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/compat.py</span> in <span class="ansi-cyan-fg">call_and_wrap_exc</span><span class="ansi-blue-fg">(msg, origin, f, *args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     41</span>                                  origin)
-<span class="ansi-green-intense-fg ansi-bold">     42</span>             <span class="ansi-red-fg"># Use &#39;exec&#39; to hide this syntax from the Python 2 parser:</span>
-<span class="ansi-green-fg">---&gt; 43</span><span class="ansi-red-fg">             </span>exec<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;raise new_exc from e&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     44</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     45</span>             <span class="ansi-red-fg"># In python 2, we just let the original exception escape -- better</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/compat.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-
-<span class="ansi-red-fg">PatsyError</span>: Error evaluating factor: NameError: name &#39;war_in_past&#39; is not defined
-    mids ~ year + capability_percent_diff + C(conttype) + gained_in_past + lost_in_past + war_in_past
-                                                                                          ^^^^^^^^^^^</pre>
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.08e+05. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</pre>
 </div>
 </div>
 
@@ -15963,7 +15899,7 @@ Dep. Variable:                   mids   R-squared:                       0.012
 Model:                            OLS   Adj. R-squared:                  0.012
 Method:                 Least Squares   F-statistic:                     1166.
 Date:                Thu, 11 May 2023   Prob (F-statistic):               0.00
-Time:                        13:58:18   Log-Likelihood:             1.7750e+06
+Time:                        17:19:02   Log-Likelihood:             1.7750e+06
 No. Observations:             1126205   AIC:                        -3.550e+06
 Df Residuals:                 1126192   BIC:                        -3.550e+06
 Df Model:                          12                                         
@@ -15985,8 +15921,8 @@ gained_in_past              0.0056      0.000     11.779      0.000       0.005 
 lost_in_past                0.0046      0.000      9.941      0.000       0.004       0.006
 war_in_past                 0.0282      0.000     65.209      0.000       0.027       0.029
 ==============================================================================
-Omnibus:                  3524759.615   Durbin-Watson:                   1.989
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):     386479308821.925
+Omnibus:                  3524759.615   Durbin-Watson:                   1.985
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):     386479308821.923
 Skew:                          49.708   Prob(JB):                         0.00
 Kurtosis:                    2871.133   Cond. No.                     1.87e+05
 ==============================================================================
