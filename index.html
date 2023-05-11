@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>final_proj</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14572,12 +14572,98 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     </script>
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1><center><strong>An Analysis of the Correlates of War</strong></h1>
+<p><center>By Wesley Day</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>War has been a terrible part of the human condition for at least thousands of years. The first half of the 20th century saw the entire world engulfed in war twice, causing widespread destruction and loss of life. The second half was also filled with war and looming over it all was the possibility of nuclear armageddon. The recent <a href="https://www.cnn.com/world/europe/ukraine">war in Ukraine</a> and <a href="https://www.nytimes.com/article/us-china-tensions-explained.html">growing hostility between the US and China</a> has made me, and I suspect many others, worry that another terrible war on the scale of the World Wars will happen in the next couple of decades.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In this tutorial, I hope to find some correlates of war and in the process, show the data science lifecycle from start to finish. I found a great resource for this called the <a href="https://correlatesofwar.org/">Correlates of War Project</a>. On their website, they have several data sets that cover topics like interstate war, intrastate war, militarized interstate disputes, trade, religion, and more. All of the data sets were made to be compatible with each other, which makes our job a lot easier.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Before we begin, there are some definitions and clarifications I need to provide. An interstate war is a war between states. The requirements to be considered a state by the Correlates of War Project are "membership in the League of Nations or the United Nations, or a population of at least 500,000 and recognition (through diplomatic missions) by two major powers". Interstate war is the type of war we are going to be focusing on. A dyad is a set of two countries and a directed dyad is a set of two countries where order matters (i.e. USA and Canada is different from Canada and USA). We will be using directed dyads throughout this tutorial. In the datasets and in our analysis, countries/states will be classified by a country code (ccode) which is a unique 1-3 digit positive integer for each country. More information about this is provided in the second code block.<br>
+If you are interested in doing your own dive into the data or would like to know more about any of the data I use here (how it was collected, coded, etc.) I encourage you to visit the Correlates of War Project website linked above.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We can start by importing some libraries.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14585,6 +14671,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">chardet</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 </pre></div>
 
      </div>
@@ -14597,7 +14684,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># In the datasets we are using, each country is associated with a country code.</span>
@@ -14614,6 +14701,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="n">country_codes</span> <span class="o">=</span> <span class="n">country_codes</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 <span class="n">country_codes</span> <span class="o">=</span> <span class="n">country_codes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;CCode&quot;</span><span class="p">)</span>
 <span class="n">country_dict</span> <span class="o">=</span> <span class="n">country_codes</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+
+<span class="c1"># The data sets that we are working with are very large. I ran into some problems</span>
+<span class="c1"># with the kernel crashing, so deleting the DataFrames when we&#39;re done with them should help.</span>
+<span class="k">del</span> <span class="n">country_codes</span>
 </pre></div>
 
      </div>
@@ -14626,7 +14717,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Here we are checking that this worked correctly by plugging in some of</span>
@@ -14677,7 +14768,7 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now we are going to read in the rest of our csv files. Some of the files use Latin-1 encoding which</span>
@@ -14691,8 +14782,8 @@ Not a valid country code
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/COW War Data/Dyadic-Interstate-War-Dataset/directed_dyadic_war.csv&quot;</span>
 <span class="n">war</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
 
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/Diplomatic Exchange/Diplomatic_Exchange_2006v1.csv&quot;</span>
-<span class="n">diplomatic_exchanges</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+<span class="c1">#filename = &quot;correlates_of_war/Diplomatic Exchange/Diplomatic_Exchange_2006v1.csv&quot;</span>
+<span class="c1">#diplomatic_exchanges = pd.read_csv(filename, encoding=get_encoding(filename))</span>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/Colonial Contiguity/contcol.csv&quot;</span>
 <span class="n">colonial_contiguity</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
@@ -14700,8 +14791,8 @@ Not a valid country code
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/Direct Contiguity/contdird.csv&quot;</span>
 <span class="n">direct_contiguity</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
 
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/Formal Alliances/alliance_v4.1_by_dyad_yearly.csv&quot;</span>
-<span class="n">formal_alliances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+<span class="c1">#filename = &quot;correlates_of_war/Formal Alliances/alliance_v4.1_by_dyad_yearly.csv&quot;</span>
+<span class="c1">#formal_alliances = pd.read_csv(filename, encoding=get_encoding(filename))</span>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/Militarized Interstate Disputes/dyadic_mid_4.02.csv&quot;</span>
 <span class="n">mid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
@@ -14709,8 +14800,8 @@ Not a valid country code
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/National Material Capabilities/NMC-60-abridged/NMC-60-abridged.csv&quot;</span>
 <span class="n">nmc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
 
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/State System Membership/majors2016.csv&quot;</span>
-<span class="n">major_powers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+<span class="c1">#filename = &quot;correlates_of_war/State System Membership/majors2016.csv&quot;</span>
+<span class="c1">#major_powers = pd.read_csv(filename, encoding=get_encoding(filename))</span>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/Territorial Change/tc2018.csv&quot;</span>
 <span class="n">territorial_change</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
@@ -14718,8 +14809,8 @@ Not a valid country code
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/Trade/Dyadic_COW_4.0.csv&quot;</span>
 <span class="n">trade</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
 
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;correlates_of_war/World Religion/WRP_national.csv&quot;</span>
-<span class="n">religion</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">get_encoding</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+<span class="c1">#filename = &quot;correlates_of_war/World Religion/WRP_national.csv&quot;</span>
+<span class="c1">#religion = pd.read_csv(filename, encoding=get_encoding(filename))</span>
 </pre></div>
 
      </div>
@@ -14755,7 +14846,7 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dropping all the columns we don&#39;t need</span>
@@ -14769,7 +14860,7 @@ Not a valid country code
                     <span class="s1">&#39;dip1&#39;</span><span class="p">,</span> <span class="s1">&#39;dip2&#39;</span><span class="p">,</span> <span class="s1">&#39;trdspike&#39;</span><span class="p">,</span> <span class="s1">&#39;tradedip&#39;</span><span class="p">,</span> <span class="s1">&#39;bel_lux_alt_flow1&#39;</span><span class="p">,</span> <span class="s1">&#39;bel_lux_alt_flow2&#39;</span><span class="p">,</span> <span class="s1">&#39;china_alt_flow1&#39;</span><span class="p">,</span> <span class="s1">&#39;china_alt_flow2&#39;</span><span class="p">,</span>
                     <span class="s1">&#39;source1&#39;</span><span class="p">,</span> <span class="s1">&#39;source2&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">])</span>
 
-<span class="n">diplomatic_exchanges</span> <span class="o">=</span> <span class="n">diplomatic_exchanges</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">])</span>
+<span class="c1">#diplomatic_exchanges = diplomatic_exchanges.drop(columns=[&#39;version&#39;])</span>
 
 <span class="n">territorial_change</span> <span class="o">=</span> <span class="n">territorial_change</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;gaintype&#39;</span><span class="p">,</span> <span class="s1">&#39;procedur&#39;</span><span class="p">,</span> <span class="s1">&#39;entity&#39;</span><span class="p">,</span> <span class="s1">&#39;contgain&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;portion&#39;</span><span class="p">,</span> 
                                  <span class="s1">&#39;losetype&#39;</span><span class="p">,</span> <span class="s1">&#39;contlose&#39;</span><span class="p">,</span> <span class="s1">&#39;entry&#39;</span><span class="p">,</span> <span class="s1">&#39;exit&#39;</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;indep&#39;</span><span class="p">,</span> <span class="s1">&#39;conflict&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">])</span>
@@ -14782,6 +14873,9 @@ Not a valid country code
                         <span class="s1">&#39;orignatb&#39;</span><span class="p">,</span> <span class="s1">&#39;rolea&#39;</span><span class="p">,</span> <span class="s1">&#39;roleb&#39;</span><span class="p">,</span> <span class="s1">&#39;dyad_rolea&#39;</span><span class="p">,</span> <span class="s1">&#39;dyad_roleb&#39;</span><span class="p">,</span> <span class="s1">&#39;durindx&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">,</span> <span class="s1">&#39;cumdurat&#39;</span><span class="p">,</span> <span class="s1">&#39;mid5hiact&#39;</span><span class="p">,</span> 
                         <span class="s1">&#39;mid5hiacta&#39;</span><span class="p">,</span> <span class="s1">&#39;mid5hiactb&#39;</span><span class="p">,</span> <span class="s1">&#39;severity&#39;</span><span class="p">,</span> <span class="s1">&#39;severitya&#39;</span><span class="p">,</span> <span class="s1">&#39;severityb&#39;</span><span class="p">,</span> <span class="s1">&#39;ongo2014&#39;</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="s1">&#39;changetype_1&#39;</span><span class="p">,</span>
                         <span class="s1">&#39;changetype_2&#39;</span><span class="p">,</span> <span class="s1">&#39;dyad&#39;</span><span class="p">,</span> <span class="s1">&#39;abbreva&#39;</span><span class="p">,</span> <span class="s1">&#39;abbrevb&#39;</span><span class="p">,</span> <span class="s1">&#39;lastobs&#39;</span><span class="p">,</span> <span class="s1">&#39;newar&#39;</span><span class="p">,</span> <span class="s1">&#39;outcome&#39;</span><span class="p">,</span> <span class="s1">&#39;war&#39;</span><span class="p">])</span>
+
+<span class="n">war</span> <span class="o">=</span> <span class="n">war</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;warnum&#39;</span><span class="p">,</span> <span class="s1">&#39;disno&#39;</span><span class="p">,</span> <span class="s1">&#39;dyindex&#39;</span><span class="p">,</span> <span class="s1">&#39;warstrtmnth&#39;</span><span class="p">,</span> <span class="s1">&#39;warstrtday&#39;</span><span class="p">,</span> <span class="s1">&#39;warendmnth&#39;</span><span class="p">,</span> <span class="s1">&#39;warenday&#39;</span><span class="p">,</span> <span class="s1">&#39;warendyr&#39;</span><span class="p">,</span> <span class="s1">&#39;warolea&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;waroleb&#39;</span><span class="p">,</span> <span class="s1">&#39;wardyadroleb&#39;</span><span class="p">,</span> <span class="s1">&#39;batdtha&#39;</span><span class="p">,</span> <span class="s1">&#39;batdthb&#39;</span><span class="p">,</span> <span class="s1">&#39;batdths&#39;</span><span class="p">,</span> <span class="s1">&#39;outcomea&#39;</span><span class="p">,</span> <span class="s1">&#39;changes_1&#39;</span><span class="p">,</span> <span class="s1">&#39;changes_2&#39;</span><span class="p">,</span> <span class="s1">&#39;durindx&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -14794,24 +14888,7 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">war</span> <span class="o">=</span> <span class="n">war</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;warnum&#39;</span><span class="p">,</span> <span class="s1">&#39;disno&#39;</span><span class="p">,</span> <span class="s1">&#39;dyindex&#39;</span><span class="p">,</span> <span class="s1">&#39;warstrtmnth&#39;</span><span class="p">,</span> <span class="s1">&#39;warstrtday&#39;</span><span class="p">,</span> <span class="s1">&#39;warstrtyr&#39;</span><span class="p">,</span> <span class="s1">&#39;warendmnth&#39;</span><span class="p">,</span> <span class="s1">&#39;warenday&#39;</span><span class="p">,</span> <span class="s1">&#39;warendyr&#39;</span><span class="p">,</span> <span class="s1">&#39;warolea&#39;</span><span class="p">,</span> 
-                        <span class="s1">&#39;waroleb&#39;</span><span class="p">,</span> <span class="s1">&#39;wardyadrolea&#39;</span><span class="p">,</span> <span class="s1">&#39;wardyadroleb&#39;</span><span class="p">,</span> <span class="s1">&#39;batdtha&#39;</span><span class="p">,</span> <span class="s1">&#39;batdthb&#39;</span><span class="p">,</span> <span class="s1">&#39;batdths&#39;</span><span class="p">,</span> <span class="s1">&#39;outcomea&#39;</span><span class="p">,</span> <span class="s1">&#39;changes_1&#39;</span><span class="p">,</span> <span class="s1">&#39;changes_2&#39;</span><span class="p">,</span> <span class="s1">&#39;durindx&#39;</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The datasets typically use -9 to mean missing value, but some use -8. Regardless,</span>
@@ -14821,14 +14898,14 @@ Not a valid country code
     <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">applymap</span><span class="p">((</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="o">-</span><span class="mi">9</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="o">-</span><span class="mi">8</span> <span class="k">else</span> <span class="n">x</span><span class="p">))</span>
 
 <span class="n">war</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">war</span><span class="p">)</span>
-<span class="n">diplomatic_exchanges</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">diplomatic_exchanges</span><span class="p">)</span>
+<span class="c1">#diplomatic_exchanges = replace_missing(diplomatic_exchanges)</span>
 <span class="n">colonial_contiguity</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">colonial_contiguity</span><span class="p">)</span>
 <span class="n">direct_contiguity</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">direct_contiguity</span><span class="p">)</span>
-<span class="n">formal_alliances</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">formal_alliances</span><span class="p">)</span>
-<span class="n">mid</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+<span class="c1">#formal_alliances = replace_missing(formal_alliances)</span>
+<span class="c1">#mid = replace_missing(mid)</span>
 <span class="n">nmc</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">nmc</span><span class="p">)</span>
 <span class="n">trade</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">trade</span><span class="p">)</span>
-<span class="n">religion</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">religion</span><span class="p">)</span>
+<span class="c1">#religion = replace_missing(religion)</span>
 <span class="n">territorial_change</span> <span class="o">=</span> <span class="n">replace_missing</span><span class="p">(</span><span class="n">territorial_change</span><span class="p">)</span>
 </pre></div>
 
@@ -14842,7 +14919,7 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># have to do something about missing data, if I want to just leave it, </span>
@@ -14883,38 +14960,7 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cinc in nmc is our capability number, look at documentation to see what it means</span>
-<span class="c1"># want to do logistic regression for war or no war between two countries based on:</span>
-<span class="c1"># capability difference -done</span>
-<span class="c1"># geographical proximity -done</span>
-<span class="c1"># trade -done</span>
-<span class="c1"># something with allies?</span>
-<span class="c1"># diplomatic exchanges/what kind -done</span>
-<span class="c1"># recent territorial change -done</span>
-<span class="c1"># num militarized disputes</span>
-
-<span class="c1"># first want to do logistic regression of just militarized disputes with war, should be correlated pretty highly</span>
-<span class="c1"># want to do linear regression of num militarized disputes with the rest of the variables I listed above</span>
-
-<span class="c1"># don&#39;t care about which state is which, just the numbers relative to each other</span>
-<span class="c1"># I think I want a dataframe that has a row for every dyad for every year</span>
-<span class="c1"># each row should have a number for the variables I listed above, then a boolean for if they are at war or not</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Here we are calculating the percent difference in military capabilities between each</span>
@@ -14931,6 +14977,8 @@ Not a valid country code
 
 <span class="n">percent_diff_df</span> <span class="o">=</span> <span class="n">nmc</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">percent_diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">percent_diff_df</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">del</span> <span class="n">percent_diff_df</span><span class="p">,</span> <span class="n">nmc</span>
 </pre></div>
 
      </div>
@@ -14943,7 +14991,7 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Adding direct contiguity, both datasets cover 1816-2016. conttype:</span>
@@ -15004,6 +15052,8 @@ Not a valid country code
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">direct_contiguity</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;conttype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;conttype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+
+<span class="k">del</span> <span class="n">direct_contiguity</span><span class="p">,</span> <span class="n">colonial_contiguity</span>
 </pre></div>
 
      </div>
@@ -15053,7 +15103,7 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Trade dataset is from 1870-2014</span>
@@ -15080,6 +15130,8 @@ Not a valid country code
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">trade</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+
+<span class="k">del</span> <span class="n">trade</span><span class="p">,</span> <span class="n">grouped</span>
 </pre></div>
 
      </div>
@@ -15111,19 +15163,19 @@ Not a valid country code
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Diplomatic Exchanges. Data is from 1817-2005, but in increments ranging from 3-10 years (typically 5)</span>
-<span class="c1"># The data is already fine as is, so we can just merge it.</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">diplomatic_exchanges</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # Diplomatic Exchanges. Data is from 1817-2005, but in increments ranging from 3-10 years (typically 5)</span>
+<span class="c1"># # The data is already fine as is, so we can just merge it.</span>
+<span class="c1"># print(len(df))</span>
+<span class="c1"># df = pd.merge(df, diplomatic_exchanges, on=[&#39;ccode1&#39;, &#39;ccode2&#39;, &#39;year&#39;], how=&#39;outer&#39;)</span>
+<span class="c1"># print(len(df))</span>
 </pre></div>
 
      </div>
@@ -15131,36 +15183,12 @@ Not a valid country code
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1912350
-1912350
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Territorial Change (1816-2008)</span>
@@ -15178,11 +15206,83 @@ Not a valid country code
 <span class="n">territorial_change</span> <span class="o">=</span> <span class="n">territorial_change</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;gainer&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;loser&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">})</span>
 <span class="n">territorial_change</span><span class="p">[</span><span class="s1">&#39;gained_territory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">losers</span> <span class="o">=</span> <span class="n">territorial_change</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ccode1&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;gained_territory&#39;</span><span class="p">:</span> <span class="s1">&#39;lost_territory&#39;</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+
+<span class="c1"># An outer merge here would cause about 300 new rows to be added. Since all of our</span>
+<span class="c1"># previous data have shared year/ccode1/ccode2 combinations, I&#39;m going to do a left merge</span>
+<span class="c1"># as filling in all the NaNs for the new rows would be impossible.</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">territorial_change</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">losers</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;gained_territory&#39;</span><span class="p">,</span> <span class="s1">&#39;lost_territory&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;gained_territory&#39;</span><span class="p">,</span> <span class="s1">&#39;lost_territory&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">del</span> <span class="n">territorial_change</span><span class="p">,</span> <span class="n">losers</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This data won&#39;t really help with our analysis. War is going to be a binary variable,</span>
+<span class="c1"># so right now this will just tell us how correlated a change of territory is with war</span>
+<span class="c1"># for the same year. But what I&#39;m wondering is if a change in territory in the past makes</span>
+<span class="c1"># war more likely (e.g. Germany losing land to France in WW1 and trying to get it back in WW2). </span>
+<span class="c1"># I am going to pick a somewhat arbitrary cutoff of territory change in the last 60 years. </span>
+<span class="c1"># My reasoning being that this is a long enough time where only a small minority will be </span>
+<span class="c1"># able to remember a time when that territory was/wasn&#39;t a part of their country.</span>
+
+<span class="c1"># To accomplish this, we are sorting the DataFrame by year. Then, we create</span>
+<span class="c1"># groups based on directed dyads and take the max of the last 60 years.</span>
+<span class="c1"># shift() moves everything up a row, ensuring that we are only looking into the</span>
+<span class="c1"># past and not the current year. min_periods = 1 ensures that we take as many rows as </span>
+<span class="c1"># we can when there are not 60 previous rows (e.g. in 1820). Finally we use max()</span>
+<span class="c1"># as there are only 1&#39;s and 0&#39;s in the gained/lost_territory columns, giving us another</span>
+<span class="c1"># binary variable in gained/lost_in_past. We then reset the index to keep things organized.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;gained_in_past&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">])[</span><span class="s1">&#39;gained_territory&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">grp</span><span class="p">:</span> <span class="n">grp</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">61</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;gained_in_past&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gained_in_past&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;lost_in_past&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">])[</span><span class="s1">&#39;lost_territory&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">grp</span><span class="p">:</span> <span class="n">grp</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">61</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;lost_in_past&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;lost_in_past&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># We can now drop the gained/lost_territory columns.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gained_territory&#39;</span><span class="p">,</span> <span class="s1">&#39;lost_territory&#39;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Militarized Interstate Disputes (1816-2014)</span>
+<span class="n">mid</span> <span class="o">=</span> <span class="n">mid</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;statea&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;stateb&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">})</span>
+<span class="n">mid</span><span class="p">[</span><span class="s1">&#39;mid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Here we expect duplicate rows. We&#39;ll get a row for each MID that occured in a year.</span>
+<span class="c1"># We&#39;ll use this in the next code block to combine this into a new column for the number</span>
+<span class="c1"># of MIDs that occured in a year.</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+
+<span class="k">del</span> <span class="n">mid</span>
 </pre></div>
 
      </div>
@@ -15205,7 +15305,7 @@ Not a valid country code
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>1912350
-1912414
+1913420
 </pre>
 </div>
 </div>
@@ -15219,10 +15319,60 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)][[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;mid&#39;</span><span class="p">]]</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;mids&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">])[</span><span class="s1">&#39;mid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mid&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mid&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;mids&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">del</span> <span class="n">df2</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The MIDs dataset added some rows that did not have a corresponding row in our DataFrame.</span>
+<span class="c1"># Since we don&#39;t have any other data in those rows, we&#39;ll just have to drop them.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;capability_percent_diff&#39;</span><span class="p">,</span> <span class="s1">&#39;conttype&#39;</span><span class="p">,</span> <span class="s1">&#39;gained_in_past&#39;</span><span class="p">,</span> <span class="s1">&#39;lost_in_past&#39;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Here, we want a rolling count of MIDs from the past so many years.</span>
+<span class="c1"># I&#39;m going to create several columns counting varying years into the past</span>
+<span class="c1"># and during our analysis we&#39;ll see how long into the past MIDs seem to matter</span>
+<span class="c1"># when trying to predict war.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;mids_past5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">])[</span><span class="s1">&#39;mids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">grp</span><span class="p">:</span> <span class="n">grp</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;mids_past5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mids_past5&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15235,17 +15385,101 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># war (1816-2010)</span>
-<span class="c1"># dataset already has directed dyads for every year (e.g. war between a and b that lasted from 1999-2000 has 4 entries)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># War (1816-2010)</span>
+<span class="c1"># The dataset already has directed dyads for every year (e.g. war between a and b that lasted from 1999-2000 has 4 entries)</span>
 
-<span class="n">war</span> <span class="o">=</span> <span class="n">war</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;statea&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;stateb&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">})</span>
+<span class="n">war</span> <span class="o">=</span> <span class="n">war</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;statea&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;stateb&#39;</span><span class="p">:</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;warstrtyr&#39;</span><span class="p">:</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;wardyadrolea&#39;</span><span class="p">:</span> <span class="s1">&#39;c1_initiated&#39;</span><span class="p">})</span>
 <span class="n">war</span><span class="p">[</span><span class="s1">&#39;at_war&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># There are some duplicated rows because we are using the start year of each war.</span>
+<span class="c1"># In the original dataset, there is an entry for every year the war is going on.</span>
+<span class="c1"># So if a war lasted for 3 years, we have 3 rows that are the same.</span>
+<span class="n">war</span> <span class="o">=</span> <span class="n">war</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="c1"># 3 in the original column (&#39;wardyadrolea&#39;) indicates that ccode1 was the target</span>
+<span class="n">war</span><span class="p">[</span><span class="s1">&#39;c1_initiated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">war</span><span class="p">[</span><span class="s1">&#39;c1_initiated&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">war</span> <span class="o">=</span> <span class="n">war</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># There is one instance of duplicate row with different c1_initiated values.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">war</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">532</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">war</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">533</span><span class="p">])</span>
+
+<span class="c1"># To resolve this, I looked at the what the value was for the reverse country codes</span>
+<span class="c1"># and kept the row with opposite value.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">war</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">530</span><span class="p">])</span>
+<span class="n">war</span> <span class="o">=</span> <span class="n">war</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">533</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>ccode1           560
+ccode2           540
+year            1975
+c1_initiated       1
+at_war             1
+Name: 532, dtype: int64
+ccode1           560
+ccode2           540
+year            1975
+c1_initiated       0
+at_war             1
+Name: 533, dtype: int64
+ccode1           540
+ccode2           560
+year            1975
+c1_initiated       0
+at_war             1
+Name: 530, dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># War data is only until 2010, since this is our dependent variable, we can drop everything after this year.</span>
+<span class="c1"># I also want to do an analysis with MIDs as the dependent variable, </span>
+<span class="c1"># so I&#39;m going to keep a copy of that goes to 2014.</span>
+<span class="n">df_2014</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2014</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2010</span><span class="p">]</span>
+
+<span class="c1"># Merging with our DataFrame, dropping duplicates, and seeing if anything was added.</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">war</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;at_war&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;at_war&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+
+<span class="k">del</span> <span class="n">war</span>
 </pre></div>
 
      </div>
@@ -15267,48 +15501,8 @@ Not a valid country code
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1912350
-1912360
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1912350
+<pre>1685370
+1685370
 </pre>
 </div>
 </div>
@@ -15322,10 +15516,39 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;at_war&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;at_war&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Like with territorial change, we&#39;re going to make a column for if two countries were at war </span>
+<span class="c1"># in the past 60 years. We&#39;re doing this in the exact same way.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;war_in_past&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">])[</span><span class="s1">&#39;at_war&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">grp</span><span class="p">:</span> <span class="n">grp</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">61</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;war_in_past&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;war_in_past&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;at_war&#39;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Final bit of data cleaning before we start the analysis. We&#39;re filling in NaN values in</span>
+<span class="c1"># c1_inititated to 0 because NaN means there was not an entry in the war DataFrame corresponding</span>
+<span class="c1"># to that year, meaning that a war did not begin between these two countries during this year.</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;c1_initiated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;c1_initiated&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Making sure all our variables that should be integers are.</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;conttype&#39;</span><span class="p">,</span> <span class="s1">&#39;gained_in_past&#39;</span><span class="p">,</span> <span class="s1">&#39;lost_in_past&#39;</span><span class="p">,</span> <span class="s1">&#39;c1_initiated&#39;</span><span class="p">,</span> <span class="s1">&#39;war_in_past&#39;</span><span class="p">,</span> <span class="s1">&#39;mids_past5&#39;</span><span class="p">]]</span> <span class="o">=</span> \
+    <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode1&#39;</span><span class="p">,</span> <span class="s1">&#39;ccode2&#39;</span><span class="p">,</span> <span class="s1">&#39;conttype&#39;</span><span class="p">,</span> <span class="s1">&#39;gained_in_past&#39;</span><span class="p">,</span> <span class="s1">&#39;lost_in_past&#39;</span><span class="p">,</span> <span class="s1">&#39;c1_initiated&#39;</span><span class="p">,</span> <span class="s1">&#39;war_in_past&#39;</span><span class="p">,</span> <span class="s1">&#39;mids_past5&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15338,10 +15561,166 @@ Not a valid country code
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="s1">&#39;at_war ~ capability_percent_diff * conttype * import_percent * export_percent&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We have a lot of NaNs. A lot of these are caused by the trade dataset being between 1870-2014 rather than</span>
+<span class="c1"># 1816-2016. So we can create a new DataFrame containing only these rows to start.</span>
+
+<span class="n">df_1870</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1870</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2014</span><span class="p">)]</span>
+<span class="c1"># Checking if we have more NaNs</span>
+<span class="n">df_1870</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>year                            0
+ccode1                          0
+ccode2                          0
+capability_percent_diff         0
+conttype                        0
+import_percent             449653
+export_percent             449699
+gained_in_past                  0
+lost_in_past                    0
+mids                            0
+mids_past5                      0
+c1_initiated                    0
+war_in_past                     0
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#########################</span>
+<span class="c1"># Need more explanation #</span>
+<span class="c1">#########################</span>
+<span class="c1"># As you can see there are still a lot of missing data in the trade columns.</span>
+<span class="n">df_1870</span> <span class="o">=</span> <span class="n">df_1870</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_1870</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span>
+    <span class="s1">&#39;c1_initiated ~ year + capability_percent_diff + C(conttype) + import_percent + export_percent + gained_in_past + lost_in_past + war_in_past + mids_past5&#39;</span><span class="p">,</span> 
+    <span class="n">data</span><span class="o">=</span><span class="n">df_1870</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_1870</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Optimization terminated successfully.
+         Current function value: 0.000932
+         Iterations 15
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:           c1_initiated   No. Observations:              1126205
+Model:                          Logit   Df Residuals:                  1126191
+Method:                           MLE   Df Model:                           13
+Date:                Thu, 11 May 2023   Pseudo R-squ.:                  0.1628
+Time:                        15:10:33   Log-Likelihood:                -1050.0
+converged:                       True   LL-Null:                       -1254.1
+Covariance Type:            nonrobust   LLR p-value:                 4.086e-79
+===========================================================================================
+                              coef    std err          z      P&gt;|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------
+Intercept                  36.7989      5.310      6.930      0.000      26.391      47.207
+C(conttype)[T.2]           -0.9498      1.012     -0.939      0.348      -2.933       1.033
+C(conttype)[T.3]           -0.4206      1.015     -0.414      0.679      -2.409       1.568
+C(conttype)[T.4]           -0.3529      0.447     -0.789      0.430      -1.230       0.524
+C(conttype)[T.5]           -0.1334      0.363     -0.367      0.714      -0.845       0.579
+C(conttype)[T.6]           -2.0071      0.275     -7.298      0.000      -2.546      -1.468
+year                       -0.0226      0.003     -8.272      0.000      -0.028      -0.017
+capability_percent_diff    -0.0005      0.003     -0.171      0.864      -0.006       0.005
+import_percent              0.0157      0.010      1.493      0.135      -0.005       0.036
+export_percent             -0.0401      0.016     -2.535      0.011      -0.071      -0.009
+gained_in_past              0.6428      0.267      2.406      0.016       0.119       1.167
+lost_in_past                0.4975      0.263      1.889      0.059      -0.019       1.014
+war_in_past                 1.1644      0.264      4.411      0.000       0.647       1.682
+mids_past5                  0.2273      0.041      5.490      0.000       0.146       0.308
+===========================================================================================
+
+Possibly complete quasi-separation: A fraction 0.90 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span>
+    <span class="s1">&#39;c1_initiated ~ year + capability_percent_diff + C(conttype) + gained_in_past + lost_in_past + war_in_past + mids_past5&#39;</span><span class="p">,</span> 
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 
@@ -15365,43 +15744,287 @@ Not a valid country code
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Optimization terminated successfully.
-         Current function value: 0.003622
-         Iterations 12
+         Current function value: 0.001396
+         Iterations 14
                            Logit Regression Results                           
 ==============================================================================
-Dep. Variable:                 at_war   No. Observations:              1240765
-Model:                          Logit   Df Residuals:                  1240749
-Method:                           MLE   Df Model:                           15
-Date:                Tue, 09 May 2023   Pseudo R-squ.:                  0.1033
-Time:                        18:05:08   Log-Likelihood:                -4494.3
-converged:                       True   LL-Null:                       -5012.1
-Covariance Type:            nonrobust   LLR p-value:                3.318e-211
-==================================================================================================================================
-                                                                     coef    std err          z      P&gt;|z|      [0.025      0.975]
-----------------------------------------------------------------------------------------------------------------------------------
-Intercept                                                         -4.5789      0.102    -44.699      0.000      -4.780      -4.378
-capability_percent_diff                                           -0.0116      0.003     -3.585      0.000      -0.018      -0.005
-conttype                                                          -0.6216      0.021    -29.943      0.000      -0.662      -0.581
-capability_percent_diff:conttype                                   0.0026      0.001      4.200      0.000       0.001       0.004
-import_percent                                                    -0.0196      0.012     -1.662      0.097      -0.043       0.004
-capability_percent_diff:import_percent                             0.0012      0.000      3.878      0.000       0.001       0.002
-conttype:import_percent                                            0.0132      0.002      5.817      0.000       0.009       0.018
-capability_percent_diff:conttype:import_percent                   -0.0002   5.94e-05     -3.194      0.001      -0.000   -7.33e-05
-export_percent                                                    -0.0002      0.011     -0.021      0.983      -0.022       0.021
-capability_percent_diff:export_percent                             0.0009      0.000      2.581      0.010       0.000       0.002
-conttype:export_percent                                            0.0093      0.002      4.062      0.000       0.005       0.014
-capability_percent_diff:conttype:export_percent                -1.301e-05   6.99e-05     -0.186      0.852      -0.000       0.000
-import_percent:export_percent                                      0.0003      0.000      1.873      0.061   -1.38e-05       0.001
-capability_percent_diff:import_percent:export_percent          -1.979e-05   4.56e-06     -4.341      0.000   -2.87e-05   -1.09e-05
-conttype:import_percent:export_percent                            -0.0001   3.44e-05     -3.936      0.000      -0.000   -6.81e-05
-capability_percent_diff:conttype:import_percent:export_percent  2.657e-06   9.59e-07      2.771      0.006    7.77e-07    4.54e-06
-==================================================================================================================================
+Dep. Variable:           c1_initiated   No. Observations:              1685370
+Model:                          Logit   Df Residuals:                  1685358
+Method:                           MLE   Df Model:                           11
+Date:                Thu, 11 May 2023   Pseudo R-squ.:                  0.1662
+Time:                        15:10:58   Log-Likelihood:                -2352.1
+converged:                       True   LL-Null:                       -2820.9
+Covariance Type:            nonrobust   LLR p-value:                4.892e-194
+===========================================================================================
+                              coef    std err          z      P&gt;|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------------
+Intercept                  20.5388      2.097      9.794      0.000      16.429      24.649
+C(conttype)[T.2]           -0.2826      0.419     -0.675      0.500      -1.103       0.538
+C(conttype)[T.3]           -0.4104      0.587     -0.700      0.484      -1.560       0.740
+C(conttype)[T.4]           -0.5249      0.271     -1.938      0.053      -1.056       0.006
+C(conttype)[T.5]           -0.7710      0.297     -2.597      0.009      -1.353      -0.189
+C(conttype)[T.6]           -2.3744      0.161    -14.778      0.000      -2.689      -2.059
+year                       -0.0141      0.001    -12.757      0.000      -0.016      -0.012
+capability_percent_diff     0.0028      0.002      1.636      0.102      -0.001       0.006
+gained_in_past              0.2810      0.186      1.510      0.131      -0.084       0.646
+lost_in_past                0.3669      0.184      1.992      0.046       0.006       0.728
+war_in_past                 1.4382      0.175      8.240      0.000       1.096       1.780
+mids_past5                  0.2083      0.029      7.190      0.000       0.152       0.265
+===========================================================================================
+
+Possibly complete quasi-separation: A fraction 0.83 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
 </pre>
 </div>
 </div>
 
 </div>
 
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lin_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span>
+    <span class="s1">&#39;mids ~ year + capability_percent_diff + C(conttype) + gained_in_past + lost_in_past + war_in_past&#39;</span><span class="p">,</span> 
+    <span class="n">data</span><span class="o">=</span><span class="n">df_2014</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lin_model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/compat.py</span> in <span class="ansi-cyan-fg">call_and_wrap_exc</span><span class="ansi-blue-fg">(msg, origin, f, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     35</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 36</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     37</span>     <span class="ansi-green-fg">except</span> Exception <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/eval.py</span> in <span class="ansi-cyan-fg">eval</span><span class="ansi-blue-fg">(self, expr, source_name, inner_namespace)</span>
+<span class="ansi-green-intense-fg ansi-bold">    164</span>         code <span class="ansi-blue-fg">=</span> compile<span class="ansi-blue-fg">(</span>expr<span class="ansi-blue-fg">,</span> source_name<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;eval&#34;</span><span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>flags<span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 165</span><span class="ansi-red-fg">         return eval(code, {}, VarLookupDict([inner_namespace]
+</span><span class="ansi-green-intense-fg ansi-bold">    166</span>                                             + self._namespaces))
+
+<span class="ansi-green-fg">&lt;string&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;war_in_past&#39; is not defined
+
+The above exception was the direct cause of the following exception:
+
+<span class="ansi-red-fg">PatsyError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_458/4246922120.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> lin_model = sm.formula.ols(
+</span><span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">&#39;mids ~ year + capability_percent_diff + C(conttype) + gained_in_past + lost_in_past + war_in_past&#39;</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     data=df_2014).fit()
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>lin_model<span class="ansi-blue-fg">.</span>summary<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/statsmodels/base/model.py</span> in <span class="ansi-cyan-fg">from_formula</span><span class="ansi-blue-fg">(cls, formula, data, subset, drop_cols, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    198</span>             missing <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;raise&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">    199</span> 
+<span class="ansi-green-fg">--&gt; 200</span><span class="ansi-red-fg">         tmp = handle_formula_data(data, None, formula, depth=eval_env,
+</span><span class="ansi-green-intense-fg ansi-bold">    201</span>                                   missing=missing)
+<span class="ansi-green-intense-fg ansi-bold">    202</span>         <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>endog<span class="ansi-blue-fg">,</span> exog<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> missing_idx<span class="ansi-blue-fg">,</span> design_info<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> tmp
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/statsmodels/formula/formulatools.py</span> in <span class="ansi-cyan-fg">handle_formula_data</span><span class="ansi-blue-fg">(Y, X, formula, depth, missing)</span>
+<span class="ansi-green-intense-fg ansi-bold">     61</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span>         <span class="ansi-green-fg">if</span> data_util<span class="ansi-blue-fg">.</span>_is_using_pandas<span class="ansi-blue-fg">(</span>Y<span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 63</span><span class="ansi-red-fg">             result = dmatrices(formula, Y, depth, return_type=&#39;dataframe&#39;,
+</span><span class="ansi-green-intense-fg ansi-bold">     64</span>                                NA_action=na_action)
+<span class="ansi-green-intense-fg ansi-bold">     65</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/highlevel.py</span> in <span class="ansi-cyan-fg">dmatrices</span><span class="ansi-blue-fg">(formula_like, data, eval_env, NA_action, return_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">    307</span>     &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    308</span>     eval_env <span class="ansi-blue-fg">=</span> EvalEnvironment<span class="ansi-blue-fg">.</span>capture<span class="ansi-blue-fg">(</span>eval_env<span class="ansi-blue-fg">,</span> reference<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 309</span><span class="ansi-red-fg">     (lhs, rhs) = _do_highlevel_design(formula_like, data, eval_env,
+</span><span class="ansi-green-intense-fg ansi-bold">    310</span>                                       NA_action, return_type)
+<span class="ansi-green-intense-fg ansi-bold">    311</span>     <span class="ansi-green-fg">if</span> lhs<span class="ansi-blue-fg">.</span>shape<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/highlevel.py</span> in <span class="ansi-cyan-fg">_do_highlevel_design</span><span class="ansi-blue-fg">(formula_like, data, eval_env, NA_action, return_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">    162</span>     <span class="ansi-green-fg">def</span> data_iter_maker<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    163</span>         <span class="ansi-green-fg">return</span> iter<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>data<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 164</span><span class="ansi-red-fg">     design_infos = _try_incr_builders(formula_like, data_iter_maker, eval_env,
+</span><span class="ansi-green-intense-fg ansi-bold">    165</span>                                       NA_action)
+<span class="ansi-green-intense-fg ansi-bold">    166</span>     <span class="ansi-green-fg">if</span> design_infos <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/highlevel.py</span> in <span class="ansi-cyan-fg">_try_incr_builders</span><span class="ansi-blue-fg">(formula_like, data_iter_maker, eval_env, NA_action)</span>
+<span class="ansi-green-intense-fg ansi-bold">     64</span>     <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>formula_like<span class="ansi-blue-fg">,</span> ModelDesc<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span>         <span class="ansi-green-fg">assert</span> isinstance<span class="ansi-blue-fg">(</span>eval_env<span class="ansi-blue-fg">,</span> EvalEnvironment<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">         return design_matrix_builders([formula_like.lhs_termlist,
+</span><span class="ansi-green-intense-fg ansi-bold">     67</span>                                        formula_like.rhs_termlist],
+<span class="ansi-green-intense-fg ansi-bold">     68</span>                                       data_iter_maker<span class="ansi-blue-fg">,</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/build.py</span> in <span class="ansi-cyan-fg">design_matrix_builders</span><span class="ansi-blue-fg">(termlists, data_iter_maker, eval_env, NA_action)</span>
+<span class="ansi-green-intense-fg ansi-bold">    691</span>     <span class="ansi-red-fg"># on some data to find out what type of data they return.</span>
+<span class="ansi-green-intense-fg ansi-bold">    692</span>     (num_column_counts,
+<span class="ansi-green-fg">--&gt; 693</span><span class="ansi-red-fg">      </span>cat_levels_contrasts<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> _examine_factor_types<span class="ansi-blue-fg">(</span>all_factors<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    694</span>                                                    factor_states<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    695</span>                                                    data_iter_maker<span class="ansi-blue-fg">,</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/build.py</span> in <span class="ansi-cyan-fg">_examine_factor_types</span><span class="ansi-blue-fg">(factors, factor_states, data_iter_maker, NA_action)</span>
+<span class="ansi-green-intense-fg ansi-bold">    441</span>     <span class="ansi-green-fg">for</span> data <span class="ansi-green-fg">in</span> data_iter_maker<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    442</span>         <span class="ansi-green-fg">for</span> factor <span class="ansi-green-fg">in</span> list<span class="ansi-blue-fg">(</span>examine_needed<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 443</span><span class="ansi-red-fg">             </span>value <span class="ansi-blue-fg">=</span> factor<span class="ansi-blue-fg">.</span>eval<span class="ansi-blue-fg">(</span>factor_states<span class="ansi-blue-fg">[</span>factor<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    444</span>             <span class="ansi-green-fg">if</span> factor <span class="ansi-green-fg">in</span> cat_sniffers <span class="ansi-green-fg">or</span> guess_categorical<span class="ansi-blue-fg">(</span>value<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    445</span>                 <span class="ansi-green-fg">if</span> factor <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> cat_sniffers<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/eval.py</span> in <span class="ansi-cyan-fg">eval</span><span class="ansi-blue-fg">(self, memorize_state, data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    562</span> 
+<span class="ansi-green-intense-fg ansi-bold">    563</span>     <span class="ansi-green-fg">def</span> eval<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> memorize_state<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 564</span><span class="ansi-red-fg">         return self._eval(memorize_state[&#34;eval_code&#34;],
+</span><span class="ansi-green-intense-fg ansi-bold">    565</span>                           memorize_state<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    566</span>                           data)
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/eval.py</span> in <span class="ansi-cyan-fg">_eval</span><span class="ansi-blue-fg">(self, code, memorize_state, data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    545</span>     <span class="ansi-green-fg">def</span> _eval<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> code<span class="ansi-blue-fg">,</span> memorize_state<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    546</span>         inner_namespace <span class="ansi-blue-fg">=</span> VarLookupDict<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>data<span class="ansi-blue-fg">,</span> memorize_state<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;transforms&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 547</span><span class="ansi-red-fg">         return call_and_wrap_exc(&#34;Error evaluating factor&#34;,
+</span><span class="ansi-green-intense-fg ansi-bold">    548</span>                                  self<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    549</span>                                  memorize_state<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;eval_env&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>eval<span class="ansi-blue-fg">,</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/compat.py</span> in <span class="ansi-cyan-fg">call_and_wrap_exc</span><span class="ansi-blue-fg">(msg, origin, f, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     41</span>                                  origin)
+<span class="ansi-green-intense-fg ansi-bold">     42</span>             <span class="ansi-red-fg"># Use &#39;exec&#39; to hide this syntax from the Python 2 parser:</span>
+<span class="ansi-green-fg">---&gt; 43</span><span class="ansi-red-fg">             </span>exec<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;raise new_exc from e&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     44</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span>             <span class="ansi-red-fg"># In python 2, we just let the original exception escape -- better</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.9/site-packages/patsy/compat.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+
+<span class="ansi-red-fg">PatsyError</span>: Error evaluating factor: NameError: name &#39;war_in_past&#39; is not defined
+    mids ~ year + capability_percent_diff + C(conttype) + gained_in_past + lost_in_past + war_in_past
+                                                                                          ^^^^^^^^^^^</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lin_model_1870</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span>
+    <span class="s1">&#39;mids ~ year + capability_percent_diff + C(conttype) + import_percent + export_percent + gained_in_past + lost_in_past + war_in_past&#39;</span><span class="p">,</span> 
+    <span class="n">data</span><span class="o">=</span><span class="n">df_1870</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lin_model_1870</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   mids   R-squared:                       0.012
+Model:                            OLS   Adj. R-squared:                  0.012
+Method:                 Least Squares   F-statistic:                     1166.
+Date:                Thu, 11 May 2023   Prob (F-statistic):               0.00
+Time:                        13:58:18   Log-Likelihood:             1.7750e+06
+No. Observations:             1126205   AIC:                        -3.550e+06
+Df Residuals:                 1126192   BIC:                        -3.550e+06
+Df Model:                          12                                         
+Covariance Type:            nonrobust                                         
+===========================================================================================
+                              coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------------
+Intercept                   0.0051      0.004      1.139      0.255      -0.004       0.014
+C(conttype)[T.2]            0.0329      0.001     29.051      0.000       0.031       0.035
+C(conttype)[T.3]           -0.0118      0.001    -10.308      0.000      -0.014      -0.010
+C(conttype)[T.4]           -0.0118      0.001    -22.449      0.000      -0.013      -0.011
+C(conttype)[T.5]           -0.0113      0.000    -24.328      0.000      -0.012      -0.010
+C(conttype)[T.6]           -0.0156      0.000    -53.772      0.000      -0.016      -0.015
+year                     5.293e-06   2.25e-06      2.357      0.018    8.92e-07    9.69e-06
+capability_percent_diff -2.661e-06   1.32e-06     -2.014      0.044   -5.25e-06   -7.09e-08
+import_percent             -0.0001   1.49e-05     -7.868      0.000      -0.000   -8.78e-05
+export_percent          -1.329e-07   1.38e-05     -0.010      0.992   -2.73e-05     2.7e-05
+gained_in_past              0.0056      0.000     11.779      0.000       0.005       0.007
+lost_in_past                0.0046      0.000      9.941      0.000       0.004       0.006
+war_in_past                 0.0282      0.000     65.209      0.000       0.027       0.029
+==============================================================================
+Omnibus:                  3524759.615   Durbin-Watson:                   1.989
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):     386479308821.925
+Skew:                          49.708   Prob(JB):                         0.00
+Kurtosis:                    2871.133   Cond. No.                     1.87e+05
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.87e+05. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Machine Learning Ideas</span>
+
+<span class="c1"># Feature selection: You can use ML algorithms to determine which features (or predictor variables) are the most </span>
+<span class="c1"># important for predicting the binary response variable c1_initiated. This can help you identify the key factors </span>
+<span class="c1"># that contribute to the likelihood of war initiation.</span>
+
+<span class="c1"># Clustering: You can use clustering algorithms to group countries together based on their similarities in terms </span>
+<span class="c1"># of the predictor variables. This can help you identify groups of countries that are more likely to engage in wars, </span>
+<span class="c1"># and potentially identify underlying factors that contribute to these similarities.</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div>
