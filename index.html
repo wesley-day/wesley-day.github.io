@@ -14681,6 +14681,17 @@ If you are interested in doing your own dive into the data or would like to know
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Data-Collection"><strong>Data Collection</strong><a class="anchor-link" href="#Data-Collection">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>In the datasets we are using, each country is associated with a country code. Here, we are reading in the csv that contains these codes and creating a dictionary so that we can access countries by their code rather than their name. This is important because the names of countries have changed over the time period we are looking at (e.g. USSR -&gt; Russia, Ottoman Empire -&gt; Turkey). It is important to keep this in mind during our analysis as this will show up as "Russia" having fought in WW2, for example, when really "USSR" fought in WW2. This is okay for our purposes because we are not primarily concerned about individual states but rather the quantitative things about states that are correlated with war.</p>
 
 </div>
@@ -14762,6 +14773,18 @@ Not a valid country code
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>All of the data was downloaded from the <a href="https://correlatesofwar.org/data-sets/">Correlates of War Project website</a>. I'm using the Dyadic Inter-State War, Dyadic MID, National Material Capabilities, Direct Contiguity, Territorial Change, Colonial/Dependency Contiguity, and Dyadic Trade datasets. Version numbers can be found in the citations section.</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15898,7 +15921,7 @@ Dep. Variable:           c1_initiated   No. Observations:              1126205
 Model:                          Logit   Df Residuals:                  1126191
 Method:                           MLE   Df Model:                           13
 Date:                Fri, 12 May 2023   Pseudo R-squ.:                  0.1628
-Time:                        13:06:50   Log-Likelihood:                -1050.0
+Time:                        17:11:31   Log-Likelihood:                -1050.0
 converged:                       True   LL-Null:                       -1254.1
 Covariance Type:            nonrobust   LLR p-value:                 4.086e-79
 ===========================================================================================
@@ -15985,7 +16008,7 @@ Dep. Variable:           c1_initiated   No. Observations:              1685370
 Model:                          Logit   Df Residuals:                  1685358
 Method:                           MLE   Df Model:                           11
 Date:                Fri, 12 May 2023   Pseudo R-squ.:                  0.1662
-Time:                        13:07:10   Log-Likelihood:                -2352.1
+Time:                        17:11:51   Log-Likelihood:                -2352.1
 converged:                       True   LL-Null:                       -2820.9
 Covariance Type:            nonrobust   LLR p-value:                4.892e-194
 ===========================================================================================
@@ -16285,35 +16308,94 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Here we see can see a clear difference between no and yes.</p>
+<p>Now we at least have some boxes. The boxes in a box plot typically tell us where the second and third quartile of the independent variable fall in relation to the dependent variable, but since most of our data is 0, the boxes also include the first quartile. The bar stretching above the boxes tell us where the rest of non-outlier data falls, and the diamonds above that are the outliers. We see that the No column has many outliers, this is all the times where several MIDs occured but not war resulted. We also see that the Yes box is taller than the No, this tells us that the distribution of the dependent variable for Yes generally has higher values compared to the No column.</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Machine Learning Ideas</span>
-
-<span class="c1"># Feature selection: You can use ML algorithms to determine which features (or predictor variables) are the most </span>
-<span class="c1"># important for predicting the binary response variable c1_initiated. This can help you identify the key factors </span>
-<span class="c1"># that contribute to the likelihood of war initiation.</span>
-
-<span class="c1"># Clustering: You can use clustering algorithms to group countries together based on their similarities in terms </span>
-<span class="c1"># of the predictor variables. This can help you identify groups of countries that are more likely to engage in wars, </span>
-<span class="c1"># and potentially identify underlying factors that contribute to these similarities.</span>
-</pre></div>
-
-     </div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Conclusion"><strong>Conclusion</strong><a class="anchor-link" href="#Conclusion">&#182;</a></h1>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We've been able to create a pretty solid model for war. There are some weaknesses of course. For one, things like ideology and religion were not included which many subscribers to the <a href="https://en.wikipedia.org/wiki/Liberalism_(international_relations">Liberalism</a>) school of thought in international relations would say is of primary importance. I was sad to see that there was so much missing data in the trade dataset and I still wonder the influence trade has on war. What was most suprising to me was that we were not able to find a significant effect between military capability difference. This could be due to institutions like the United Nations and the trauma of the wars of the 20th century that countries have realized that taking things from other countries just because they can isn't worth it anymore. I'd be curious to see if there is a significant effect if the data stretched further into the past, though the further back you go the harder it's going to be to find reliable data, certainly at the scale that is I have here. I was not suprised to see that the two strongest predictors were proximity and having fought a war in the past. Countries that are close to each other we would expect to go to war with each other more when compared to countries farther away. Likewise, countries that have fought each other in the past we would expect to be more likely to go to war again in the future. I was very glad to see that year had a negative correlation with war, though it was a very small correlation.</p>
 
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In terms of policy, it is hard to glean anything from what we've learned here. This is merely a starting point. More variables definitely need to be included to get a more complete picture.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Citations"><strong>Citations</strong><a class="anchor-link" href="#Citations">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong><u>Dyadic Inter-State War Dataset:</u></strong><br>
+    Zeev Maoz, Paul L. Johnson, Jasper Kaplan, Fiona Ogunkoya, and Aaron Shreve 2019. The Dyadic Militarized Interstate Disputes (MIDs) Dataset Version 3.0: Logic, Characteristics, and Comparisons to Alternative Datasets, Journal of Conflict Resolution (forthcoming).</p>
+<p><strong><u>Militarized Interstate Disputes (v5.0):</u></strong><br>
+    Palmer, Glenn, Roseanne W. McManus, Vito D’Orazio, Michael R. Kenwick, Mikaela Karstens, Chase Bloch, Nick Dietrich, Kayla Kahn, Kellan Ritter, Michael J. Soules. 2020. “The MID5 Dataset, 2011-2014: Procedures, Coding Rules, and Description.” Conflict Management and Peace Science, 39(4): 470-482. DOI: <a href="https://journals.sagepub.com/doi/full/10.1177/0738894221995743">https://journals.sagepub.com/doi/full/10.1177/0738894221995743</a></p>
+<p><strong><u>National Material Capabilities (v6.0):</u></strong>
+    Singer, J. David, Stuart Bremer, and John Stuckey. (1972). “Capability Distribution, Uncertainty, and Major Power War, 1820-1965.” in Bruce Russett (ed) Peace, War, and Numbers, Beverly Hills: Sage, 19-48.</p>
+
+<pre><code>The above article, the first NMC data set assembled in the 1960s, described and analyzed original data on major powers only. Following this, the data set was expanded to cover the entire interstate system as discussed in:
+
+Singer, J. David. 1987. “Reconstructing the Correlates of War Dataset on Material Capabilities of States, 1816-1985” International Interactions, 14: 115-32.
+
+</code></pre>
+<p><strong><u>Direct Contiguity (v3.2):</u></strong><br>
+    Correlates of War Project. Direct Contiguity Data, 1816-2016. Version 3.2.</p>
+
+<pre><code>Stinnett, Douglas M., Jaroslav Tir, Philip Schafer, Paul F. Diehl, and Charles Gochman. 2002. “The Correlates of War Project Direct Contiguity Data, Version 3.” Conflict Management and Peace Science 19(2):58-66.
+
+</code></pre>
+<p><strong><u>Territorial Change (v6):</u></strong><br>
+    Tir, Jaroslav, Philip Schafer, Paul Diehl, and Gary Goertz. 1998. “Territorial Changes, 1816-1996: Procedures and Data”, Conflict Management and Peace Science 16:89-97.</p>
+<p><strong><u>Colonial Contiguity (v3.1):</u></strong><br>
+    Correlates of War Project. Colonial Contiguity Data, 1816-2016. Version 3.1.</p>
+<p><strong><u>Trade (v4.0):</u></strong><br>
+    Barbieri, Katherine and Omar M. G. Omar Keshk. 2016. Correlates of War Project Trade Data Set Codebook, Version 4.0. Online: <a href="https://correlatesofwar.org">https://correlatesofwar.org</a>.</p>
+
+<pre><code>Barbieri, Katherine, Omar M. G. Keshk, and Brian Pollins. 2009. “TRADING DATA: Evaluating our Assumptions and Coding Rules.” Conflict Management and Peace Science. 26(5): 471-491.</code></pre>
+
+</div>
+</div>
+</div>
 </div>
 </body>
 
